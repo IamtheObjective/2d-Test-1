@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4i7qk8plqp27"]
+
+[ext_resource type="Script" path="res://scripts/hoodie.gd" id="1_5tber"]
+[ext_resource type="Texture2D" uid="uid://bpen1jwby4rsn" path="res://art/characters/hoodie.png" id="2_026ob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw67e"]
+atlas = ExtResource("2_026ob")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vwwo"]
+atlas = ExtResource("2_026ob")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcn4b"]
+atlas = ExtResource("2_026ob")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpx2c"]
+atlas = ExtResource("2_026ob")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4p4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw67e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vwwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcn4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpx2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcn4b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_suh40"]
+radius = 5.0
+
+[node name="hoodie" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_5tber")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h4p4m")
+animation = &"idle"
+frame_progress = 0.747643
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_suh40")
